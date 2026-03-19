@@ -1,0 +1,32 @@
+{
+  "name": "env-to-ssm",
+  "version": "1.0.0",
+  "description": "CLI tool to push .env variables to AWS SSM Parameter Store",
+  "main": "dist/index.js",
+  "bin": {
+    "env-to-ssm": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "push:dev": "npx tsx src/index.ts --service MY-SERVICE --env dev --file .env.dev --profile dev",
+    "push:staging": "npx tsx src/index.ts --service MY-SERVICE --env staging --file .env.staging  --profile staging",
+    "push:prod": "npx tsx src/index.ts --service MY-SERVICE --env prod --file .env.prod --profile prod"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ssm": "^3.1011.0",
+    "@aws-sdk/credential-providers": "^3.1011.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.4.5"
+  },
+  "overrides": {
+    "fast-xml-parser": "^5.5.6"
+  }
+}
