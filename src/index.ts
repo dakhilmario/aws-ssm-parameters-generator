@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name("env-to-ssm")
   .description("Push .env variables to AWS SSM Parameter Store")
-  .requiredOption("-s, --service <name>", "Service name (e.g. eva-backend)")
+  .requiredOption("-s, --service <name>", "Service name (e.g. my-backend)")
   .requiredOption(
     "-e, --env <environment>",
     "Environment (e.g. dev, staging, prod)",
