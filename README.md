@@ -11,8 +11,8 @@ A CLI tool to push `.env` variables to AWS SSM Parameter Store as `SecureString`
 Keys are lowercased automatically:
 
 ```
-ADMIN_EMAIL=admin@example.com  →  /eva-backend/dev/admin_email
-DB_PASSWORD=supersecret        →  /eva-backend/dev/db_password
+ADMIN_EMAIL=admin@example.com  →  /my-backend/dev/admin_email
+DB_PASSWORD=supersecret        →  /my-backend/dev/db_password
 ```
 
 Full pattern: `/{service}/{env}/{key}`
@@ -85,7 +85,7 @@ npx tsx src/index.ts --service MY-SERVICE --env prod --file .env.prod --profile 
 
 ```
 📄 Reading env file: /project/.env
-🔧 Service:          eva-backend
+🔧 Service:          my-backend
 🌍 Environment:      dev
 🌐 AWS Region:       us-east-1
 👤 AWS Profile:      dev
@@ -93,10 +93,10 @@ npx tsx src/index.ts --service MY-SERVICE --env prod --file .env.prod --profile 
 ────────────────────────────────────────────────────────────
 ✅ Found 4 variables in env file
 
-  ✅ Pushed   → /eva-backend/dev/admin_email
-  ✅ Pushed   → /eva-backend/dev/db_host
-  ⏭️  Skipped  → /eva-backend/dev/db_password (already exists, use --overwrite to update)
-  ✅ Pushed   → /eva-backend/dev/api_key
+  ✅ Pushed   → /my-backend/dev/admin_email
+  ✅ Pushed   → /my-backend/dev/db_host
+  ⏭️  Skipped  → /my-backend/dev/db_password (already exists, use --overwrite to update)
+  ✅ Pushed   → /my-backend/dev/api_key
 
 ────────────────────────────────────────────────────────────
 📊 Summary:
@@ -110,7 +110,7 @@ npx tsx src/index.ts --service MY-SERVICE --env prod --file .env.prod --profile 
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `-s, --service` | Service name (e.g. `eva-backend`) | required |
+| `-s, --service` | Service name (e.g. `my-backend`) | required |
 | `-e, --env` | Environment (e.g. `dev`, `staging`, `prod`) | required |
 | `-f, --file` | Path to `.env` file | `.env` |
 | `-p, --profile` | AWS credentials profile | AWS default |
